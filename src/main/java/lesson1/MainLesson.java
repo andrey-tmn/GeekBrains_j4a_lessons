@@ -3,7 +3,6 @@ package lesson1;
 public class MainLesson {
     // 1. Создать пустой проект в IntelliJ IDEA и прописать метод main()
     public static void main(String[] args) {
-
         // 2. Переменные всех типов
         allTypesVar();
 
@@ -83,7 +82,7 @@ public class MainLesson {
     // положительное ли число передали, или отрицательное;
     // Замечание: ноль считаем положительным числом.
     private static void checkModuleOfNumber(int a) {
-        if(a >= 0)
+        if (a >= 0)
             System.out.println("Число " + a + " является положительным.");
         else
             System.out.println("Число " + a + " является отрицательным.");
@@ -92,7 +91,7 @@ public class MainLesson {
     // 6. Написать метод, которому в качестве параметра передается
     // целое число, метод должен вернуть true, если число отрицательное
     private static boolean isNegativeNumber(int a) {
-        // В задании не сказано, что дедать, если число положительное,
+        // В задании не сказано, что делать, если число положительное,
         // но логично вернуть false
         return a < 0;
     }
@@ -103,7 +102,7 @@ public class MainLesson {
     private static void printHello(String str1) {
         System.out.println("Привет, " + str1 + "!");
     }
-    
+
     // 8. * Написать метод, который определяет является
     // ли год високосным, и выводит сообщение в консоль.
     // Каждый 4-й год является високосным, кроме каждого 100-го,
@@ -113,20 +112,18 @@ public class MainLesson {
 
         // Если число делится без остатка на 4,
         // то это високосный год, за исключением 100-х годов
-        if(0 == (year % 4))
-        {
+        if (0 == (year % 4)) {
             isLeapYear = true;
             // Это сотый год - он не високосный, если он не 400-й
-            if(0 == (year % 100))
-            {
+            if (0 == (year % 100)) {
                 isLeapYear = false;
                 // Это 400-й год, он високосный
-                if(0 == (year % 400))
+                if (0 == (year % 400))
                     isLeapYear = true;
             }
         }
 
-        if(isLeapYear)
+        if (isLeapYear)
             System.out.println("Год " + year + " високосный!");
         else
             System.out.println("Год " + year + " НЕ високосный!");
