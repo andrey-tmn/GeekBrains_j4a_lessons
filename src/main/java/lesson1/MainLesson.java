@@ -71,10 +71,7 @@ public class MainLesson {
         final byte MIN = 10;
         final byte MAX = 20;
         double sum = a + b;
-        if ((sum < MIN) || (sum > MAX))
-            return false;
-        else
-            return true;
+        return !((sum < MIN) || (sum > MAX));
     }
 
     // 5. Написать метод, которому в качестве параметра
