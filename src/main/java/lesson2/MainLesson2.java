@@ -2,7 +2,7 @@ package lesson2;
 
 import java.util.Arrays;
 
-public class Main {
+public class MainLesson2 {
     public static void main(String[] args) {
 
         System.out.println("Задание 1: создать массив случайных 1 и 0, после инвертировать");
@@ -84,11 +84,10 @@ public class Main {
 
         // Заполняем диагонали единицами
         for (int i = 0; i < arr1.length; i++) {
-            for (int j = 0; j < arr1[i].length; j++) {
-                if ((i == j) || (((arr1[i].length - 1) - i) == j)) {
-                    arr1[i][j] = 1;
-                }
-            }
+            // Основная диагональ
+            arr1[i][i] = 1;
+            // Побочная диагональ
+            arr1[i][(arr1.length - 1) - i] = 1;
         }
         System.out.println("Теперь диагонали заполнены единицами:");
         showMatrix(arr1);
