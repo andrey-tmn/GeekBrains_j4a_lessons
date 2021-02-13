@@ -84,12 +84,9 @@ public class MainLesson2 {
         showMatrix(arr1);
 
         // Заполняем диагонали единицами
-        for (int i = 0; i < arr1.length; i++) {
-            // Основная диагональ
-            arr1[i][i] = 1;
-            // Побочная диагональ
-            arr1[i][(arr1.length - 1) - i] = 1;
-        }
+        for (int i = 0; i < arr1.length; i++)
+            arr1[i][i] = arr1[i][(arr1.length - 1) - i] = 1;
+
         System.out.println("Теперь диагонали заполнены единицами:");
         showMatrix(arr1);
     }
@@ -110,18 +107,20 @@ public class MainLesson2 {
         int[] arr1 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         System.out.println(Arrays.toString(arr1));
 
-        //Переменные для хранения максимума и минимума
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] < min) {
-                min = arr1[i];
+        // Для корректной работы нам нужен не пустой массив
+        if (arr1.length > 0) {
+            // Переменные для хранения максимума и минимума
+            int min = arr1[0];
+            int max = arr1[0];
+            for (int i = 1; i < arr1.length; i++) {
+                if (arr1[i] < min) {
+                    min = arr1[i];
+                } else if (arr1[i] > max) {
+                    max = arr1[i];
+                }
             }
-            if (arr1[i] > max) {
-                max = arr1[i];
-            }
+            System.out.printf("Минимальное значение: %d, максимальное: %d.%n", min, max);
         }
-        System.out.printf("Минимальное значение: %d, максимальное: %d.%n", min, max);
     }
 
     // 6. ** Написать метод, в который передается не пустой одномерный целочисленный массив,
