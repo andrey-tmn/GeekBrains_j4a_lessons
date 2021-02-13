@@ -64,11 +64,13 @@ public class MainLesson3_task2 {
                 System.out.println();
             }
         }
+
+        scanner.close();
     }
 
     // Сгенерировать случайное положительное целое число
     // от 0 (включительно) до max (невключительно)
-    public static int random(int max) {
+    private static int random(int max) {
         if (max <= 1) return 0;
         return (int) (Math.random() * max);
     }
