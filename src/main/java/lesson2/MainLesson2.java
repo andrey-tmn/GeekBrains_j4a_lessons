@@ -1,6 +1,7 @@
 package lesson2;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class MainLesson2 {
     public static void main(String[] args) {
@@ -130,8 +131,17 @@ public class MainLesson2 {
     // checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||,
     // эти символы в массив не входят
     private static void testBalanceMethod() {
-        int[] arr1 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}; //Нет баланса
-        //int[] arr1 = {6, 7, 12, 25}; //Есть баланс
+        // Есть баланс
+        //int[] arr1 = {6, 7, 12, 25};
+        //int[] arr1 = {5, 6, 11};
+        //int[] arr1 = {5, 5};
+        //int[] arr1 = {11, 6, 5};
+        // Нет баланса
+        int[] arr1 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        //int[] arr1 = {11, 6, 4};
+        //int[] arr1 = {5, 5, 5};
+        //int[] arr1 = {5, 0};
+        //int[] arr1 = {10, 5, 5, 5};
         System.out.println(Arrays.toString(arr1));
         if (checkBalance(arr1))
             System.out.println("В заданном массиве найден баланс!");
@@ -141,20 +151,25 @@ public class MainLesson2 {
 
     // Ищет "баланс" в массиве
     private static boolean checkBalance(int[] arr1) {
-        // Баланс ищем следующим образом:
-        // проходим все элементы подряд, считая их сумму,
-        // и считаем для каждой позиции сумму всех следующих после
-        int leftSum = 0;
-        for (int i = 0; i < arr1.length; i++) {
-            leftSum += arr1[i];
+        // Если у нас нет хотя бы двух элементов - не будет и баланса
+        if (arr1.length < 2) return false;
 
-            int rightSum = 0;
-            for (int j = i + 1; j < arr1.length; j++) {
-                rightSum += arr1[j];
-            }
+        // В правой части сразу сумма всех элементов
+        int rightPart = 0;
+        for (int val : arr1) rightPart += val;
+        // Если сумма всех элементов нечётная, то баланса не будет
+        if ((rightPart % 2) != 0) return false;
 
-            //Нашли баланс
-            if (leftSum == rightSum) return true;
+        // Сразу в левой части ничего нет
+        int leftPart = 0;
+
+        // По одному элементу перекидываем из правой части в левую, сравнивая
+        for (int val : arr1) {
+            // Перекидываем текущий элемент из правой части в левую
+            leftPart += val;
+            rightPart -= val;
+            // Баланс найден
+            if (leftPart == rightPart) return true;
         }
 
         //Баланс не был найден
@@ -194,7 +209,7 @@ public class MainLesson2 {
         }
 
         // Смещение влево реализуем через смещение вправо
-        if(n < 0){
+        if (n < 0) {
             n = arr1.length + n;
         }
 
