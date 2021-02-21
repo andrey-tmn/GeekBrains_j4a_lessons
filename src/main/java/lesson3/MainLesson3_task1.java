@@ -32,7 +32,9 @@ public class MainLesson3_task1 {
                 System.out.println("Ваш вариант:");
                 try {
                     answer = Integer.decode(scanner.nextLine());
-                } catch (NumberFormatException nfe) { }
+                } catch (NumberFormatException nfe) {
+                    /* Если введено что-то, что никак не удалось привести к числу */
+                }
             }
             tryCnt++;
 
