@@ -1,8 +1,11 @@
 package lesson6;
 
+import cat.names.CatNames;
+
+import java.io.IOException;
+
 public class MainLesson6 {
-    public static void main(String[] args) {
-        String[] catNames = {"Василь", "Барсик", "Кроть", "Киса", "Борис", "Рыжик", "Серька"};
+    public static void main(String[] args) throws IOException {
         String[] dogNames = {"Джек", "Майк", "Боби", "Персик", "Бой", "Байгус", "Север"};
         final int ANIMALS_CNT = 10;
 
@@ -13,7 +16,7 @@ public class MainLesson6 {
                 Dog tmpDog = new Dog(dogNames[random(dogNames.length)]);
                 animals[i] = tmpDog;
             } else {
-                Cat tmpCat = new Cat(catNames[random(catNames.length)]);
+                Cat tmpCat = new Cat(CatNames.getCatName());
                 animals[i] = tmpCat;
             }
 

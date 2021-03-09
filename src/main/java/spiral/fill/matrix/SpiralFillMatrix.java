@@ -1,4 +1,4 @@
-package lesson2;
+package spiral.fill.matrix;
 
 public class SpiralFillMatrix {
     public static void main(String[] args) {
