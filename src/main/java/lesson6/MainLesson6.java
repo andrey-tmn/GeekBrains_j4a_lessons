@@ -1,7 +1,6 @@
 package lesson6;
 
 import cat.names.CatNames;
-
 import java.io.IOException;
 
 public class MainLesson6 {
