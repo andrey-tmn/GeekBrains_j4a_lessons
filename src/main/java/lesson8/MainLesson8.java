@@ -13,6 +13,8 @@ public class MainLesson8 {
         Participant[] participants = new Participant[PARTICIPANT_CNT];
         Obstacle[] obstacles = new Obstacle[OBSTACLES_CNT];
 
+        System.out.println("Набираем участников:");
+
         for (int i = 0; i < participants.length; i++) {
             double pTypeBranch = Math.random();
             Participant tmp;
@@ -26,7 +28,11 @@ public class MainLesson8 {
             participants[i] = tmp;
         }
 
+        System.out.println();
+        System.out.println("Формируем полосу препятствий:");
+
         for (int i = 0; i < obstacles.length; i++) {
+            System.out.print((i + 1) + ". ");
             Obstacle tmp;
             if (0.5 > Math.random()) {
                 tmp = new Wall();
@@ -35,5 +41,23 @@ public class MainLesson8 {
             }
             obstacles[i] = tmp;
         }
+
+        System.out.println();
+        System.out.println("Все участники стартуют одновременно.");
+
+        for (int i = 0; i < obstacles.length; i++) {
+            System.out.print((i + 1) + ". ");
+            obstacles[i].printInfo();
+            for (Participant curp : participants) {
+                obstacles[i].overcome(curp);
+            }
+        }
+
+        System.out.println();
+        System.out.println("Финиш.");
+        for (Participant curp : participants) {
+            curp.printFinishInfo();
+        }
     }
+
 }

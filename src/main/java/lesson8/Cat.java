@@ -1,13 +1,14 @@
 package lesson8;
 
-public class Cat implements Participant{
-    private final int MAX_RUN = 3000;
-    private final int MIN_RUN = 200;
-    private final int MAX_JUMP = 300;
-    private final int MIN_JUMP = 120;
+public class Cat implements Participant {
+    private final int MAX_RUN = 10000;
+    private final int MIN_RUN = 500;
+    private final int MAX_JUMP = 350;
+    private final int MIN_JUMP = 140;
     private int run;
     private int jump;
     private String name;
+    private boolean atTheDistance = true;
 
     public Cat(String name) {
         this.name = name;
@@ -18,17 +19,36 @@ public class Cat implements Participant{
     }
 
     @Override
-    public void run() {
-
+    public void run(int distance) {
+        if (atTheDistance) {
+            if (distance <= run) {
+                System.out.printf("Кот %s бежит %d м.%n", name, distance);
+            } else {
+                atTheDistance = false;
+                String s = "Кот %s бегает не более %d м, он " +
+                        "не может пробежать и выбывает с дистанции.%n";
+                System.out.printf(s, name, run);
+            }
+        }
     }
 
     @Override
-    public void jump() {
-
+    public void jump(int height) {
+        if (atTheDistance) {
+            if (height <= jump) {
+                System.out.printf("Кот %s прыгает %d см.%n", name, height);
+            } else {
+                atTheDistance = false;
+                String s = "Кот %s прыгает не выше %d см, он " +
+                        "не может перепрыгнуть и выбывает с дистанции.%n";
+                System.out.printf(s, name, jump);
+            }
+        }
     }
 
     @Override
-    public void go(Obstacle obstacle) {
-
+    public void printFinishInfo() {
+        if (atTheDistance)
+            System.out.printf("%s: мяууу, я — кот и я прекрасен!%n", name);
     }
 }

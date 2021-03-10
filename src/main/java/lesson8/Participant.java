@@ -1,7 +1,7 @@
 package lesson8;
 
 public interface Participant {
-    void run();
-    void jump();
-    void go(Obstacle obstacle);
+    void run(int distance);
+    void jump(int height);
+    void printFinishInfo();
 }
