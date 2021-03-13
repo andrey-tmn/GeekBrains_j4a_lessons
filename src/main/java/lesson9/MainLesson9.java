@@ -25,8 +25,12 @@ public class MainLesson9 {
 
     public static int arraySumWrap(String[][] arr)
             throws MyArraySizeException, MyArrayDataException {
-        if ((arr.length != 4) || (arr[0].length != 4))
+        if (4 != arr.length)
             throw new MyArraySizeException();
+        for (int i = 0; i < arr.length; i++) {
+            if(4 != arr[i].length)
+                throw new MyArraySizeException();
+        }
 
         return arraySum(arr);
     }
