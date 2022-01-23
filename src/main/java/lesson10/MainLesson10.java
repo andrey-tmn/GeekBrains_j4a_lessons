@@ -21,8 +21,20 @@ public class MainLesson10 {
         }
 
         String msg = "Слово «%s» в массиве используется раз: %d.%n";
-        for(Map.Entry<String, Integer> entry : wordsCnt.entrySet()) {
+        for (Map.Entry<String, Integer> entry : wordsCnt.entrySet()) {
             System.out.printf(msg, entry.getKey(), entry.getValue());
         }
+
+        System.out.println();
+
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Иванов", "+7-919-32-11-111");
+        phoneBook.add("Петров", "+7-920-32-22-222");
+        phoneBook.add("Петров", "+7-922-32-33-333");
+        phoneBook.add("Кузнецов", "+7-959-32-44-444");
+
+        phoneBook.get("Иванов");
+        phoneBook.get("Отсутствующий");
+        phoneBook.get("Петров");
     }
 }
