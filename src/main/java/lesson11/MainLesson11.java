@@ -2,6 +2,7 @@ package lesson11;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.desktop.AppForegroundListener;
 import java.util.*;
 
 public class MainLesson11 {
@@ -9,7 +10,7 @@ public class MainLesson11 {
         String[] arr1 = {"Слово", "Ещё одно", "Третье", "Четвёртое", "Последнее"};
         task1(arr1);
         task2(arr1);
-
+        task3();
         additional_task();
     }
 
@@ -36,6 +37,47 @@ public class MainLesson11 {
     // Написать метод, который преобразует массив в ArrayList
     private static <T> ArrayList<T> toArrayList(T[] arr) {
         return new ArrayList<>(List.of(arr));
+    }
+
+    private static void task3() {
+        Apple apple1 = new Apple();
+        Apple apple2 = new Apple();
+        Apple apple3 = new Apple();
+        Orange orange1 = new Orange();
+        Orange orange2 = new Orange();
+
+        Box<Apple> box1 = new Box();
+        box1.add(apple1);
+        box1.add(apple2);
+        System.out.println(box1);
+
+        Box<Apple> box2 = new Box();
+        box2.add(apple3);
+        System.out.println(box2);
+
+        Box<Orange> box3 = new Box();
+        box3.add(orange1);
+        box3.add(orange2);
+        System.out.println(box3);
+
+        // Пересыпаем все яблоки из второй коробки в первую
+        box1.addFromBox(box2);
+        System.out.println(box1);
+        System.out.println(box2);
+
+        // Пересыпать из коробки с апельсинами в коробку с яблоками мы не можем
+        //box1.addFromBox(box3);
+
+        // Но сравнить их вес - можем (три яблока должны весить как два апельсина)
+        System.out.println(box1.compare(box3));
+
+        // Понимаю почему это работает, но не знаю что сделать,
+        // чтобы таким образом нельзя было обойти ограничение по типу фруктов,
+        // т.к. таким образом у меня в коробке лежат и апельсины и яблоки сразу
+        Box<Fruit> box4 = new Box<>();
+        box4.add(apple1);
+        box4.add(orange1);
+        System.out.println(box4);
     }
 
     private static void additional_task() {
