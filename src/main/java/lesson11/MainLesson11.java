@@ -62,7 +62,9 @@ public class MainLesson11 {
 
         // Пересыпаем все яблоки из второй коробки в первую
         box1.addFromBox(box2);
+        System.out.println("Коробка в которую пересыпали:");
         System.out.println(box1);
+        System.out.println("Коробка из которой всё убрали:");
         System.out.println(box2);
 
         // Пересыпать из коробки с апельсинами в коробку с яблоками мы не можем
@@ -74,10 +76,10 @@ public class MainLesson11 {
         // Понимаю почему это работает, но не знаю что сделать,
         // чтобы таким образом нельзя было обойти ограничение по типу фруктов,
         // т.к. таким образом у меня в коробке лежат и апельсины и яблоки сразу
-        Box<Fruit> box4 = new Box<>();
-        box4.add(apple1);
-        box4.add(orange1);
-        System.out.println(box4);
+        //Box<Fruit> box4 = new Box<>();
+        //box4.add(apple1);
+        //box4.add(orange1);
+        //System.out.println(box4);
     }
 
     private static void additional_task() {
